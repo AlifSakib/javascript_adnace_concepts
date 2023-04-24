@@ -15,5 +15,10 @@ Car.prototype.totalProfit = function () {
   return this.price * this.stock;
 };
 
-console.log(m8.totalProfit(10 * 5));
+console.log(m8.totalProfit());
 console.log(m8 instanceof Car);
+
+console.log(m8.__proto__);
+
+const arr = [1, 1, 5, 7, 9, 2, 7, 8, 3, 5, 5];
+console.log(arr);
