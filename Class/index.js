@@ -27,24 +27,74 @@
 
 // }
 
-const carEl = class {
-  constructor(brand, price, stock) {
-    this.brand = brand;
-    this.price = price;
-    this.stock = stock;
-  }
+// const carEl = class {
+//   constructor(brand, price, stock) {
+//     this.brand = brand;
+//     this.price = price;
+//     this.stock = stock;
+//   }
 
-  // instance method
-  totalProfit() {
-    return this.price * this.stock;
-  }
+//   // instance method
+//   totalProfit() {
+//     return this.price * this.stock;
+//   }
 
-  // static method
-  static hello() {
-    console.log("Hello World");
-  }
+//   // static method
+//   static hello() {
+//     console.log("Hello World");
+//   }
+// };
+
+// const m8 = new carEl("BMW", 100000, 5);
+// console.log(m8.totalProfit());
+// console.log(m8.__proto__);
+
+// Object.create();
+
+// const CarsProto = {
+//   totalProfit() {
+//     return this.price * this.stock;
+//   },
+
+//   creator(brand, price, stock) {
+//     this.brand = brand;
+//     this.price = price;
+//     this.stock = stock;
+//   },
+// };
+
+// const m8 = Object.create(CarsProto);
+
+// console.log(m8);
+
+const shohag = {
+  company: "Shohag",
+  serialCode: "SH-001",
+  bookings: [],
+
+  book(name, id) {
+    console.log(
+      `${name} booked a seat in ${this.company} ${this.serialCode} ${id}`
+    );
+    this.bookings.push({
+      name,
+      bus: `${this.company} ${this.serialCode} ${id}`,
+    });
+  },
 };
 
-const m8 = new carEl("BMW", 100000, 5);
-console.log(m8.totalProfit());
-console.log(m8.__proto__);
+shohag.book("AlifSakib", 23);
+console.log(shohag.bookings);
+
+const book = shohag.book;
+// book("Sakib", 20);
+book.call(shohag, "Sakib", 20);
+console.log(shohag.bookings);
+
+const hanif = {
+  company: "Hanif",
+  serialCode: "HN-001",
+  bookings: [],
+};
+
+book.call(hanif, "Jamil", 12);
