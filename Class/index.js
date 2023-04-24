@@ -33,6 +33,18 @@ const carEl = class {
     this.price = price;
     this.stock = stock;
   }
+
+  // instance method
+  totalProfit() {
+    return this.price * this.stock;
+  }
+
+  // static method
+  static hello() {
+    console.log("Hello World");
+  }
 };
 
 const m8 = new carEl("BMW", 100000, 5);
+console.log(m8.totalProfit());
+console.log(m8.__proto__);
