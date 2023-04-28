@@ -102,3 +102,5 @@ book.call(hanif, "Jamil", 12);
 // Today no code
 // Tomorrow no code
 // Day after tomorrow no code
+
+// Class Inheritance
