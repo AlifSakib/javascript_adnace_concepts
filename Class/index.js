@@ -104,3 +104,32 @@ book.call(hanif, "Jamil", 12);
 // Day after tomorrow no code
 
 // Class Inheritance
+
+const Person = function (name, birthyear) {
+  this.name = name;
+  this.birthyear = birthyear;
+};
+
+Person.prototype.calculateAge = function (year) {
+  return year - this.birthyear;
+};
+
+const alif = new Person("Alif", 1998);
+console.log(alif.calculateAge(2021));
+
+const Student = function (name, birthyear, subject) {
+  // this.name = name;
+  // this.birthyear = birthyear;
+  Person.apply(this, [name, birthyear]);
+  this.subject = subject;
+};
+
+Student.prototype = Object.create(Person.prototype);
+
+Student.prototype.intro = function () {
+  return `My name is ${this.name} and I study ${this.subject}`;
+};
+
+const sakib = new Student("Sakib", 1998, "CSE");
+console.log(sakib.intro());
+console.log(sakib.calculateAge(2023));
